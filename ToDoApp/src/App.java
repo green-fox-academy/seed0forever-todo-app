@@ -8,18 +8,31 @@ import java.util.List;
 
 public class App {
 
+  private static final String USAGE_HELP_MSG = "usage.txt";
+  private static final String TODO_STORAGE_FILE = "todo.txt";
+
+  private static ToDoList runtimeToDoList;
+
   public static void main(String[] args) {
     ArgumentContainer argsInput = new ArgumentContainer(args);
 
     if (argsInput.isVoid()) {
       printUsage();
+    } else if (argsInput.hasDashArg("l")) {
+      loadToDoList();
+      runtimeToDoList.printLines();
     } else {
       System.out.println(Arrays.asList(argsInput.getArgs()));
     }
   }
 
+  private static void loadToDoList() {
+    List<String> loadedToDoFile = readFile(TODO_STORAGE_FILE);
+    runtimeToDoList = new ToDoList(loadedToDoFile);
+  }
+
   private static void printUsage() {
-    List<String> loadedFileLines = readFile("usage.txt");
+    List<String> loadedFileLines = readFile(USAGE_HELP_MSG);
     printListLines(loadedFileLines);
   }
 
