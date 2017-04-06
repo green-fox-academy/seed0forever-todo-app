@@ -8,6 +8,10 @@ import java.util.List;
 public class App {
 
   public static void main(String[] args) {
+    printUsage();
+  }
+
+  private static void printUsage() {
     try {
       Path usagePath = Paths.get("usage.txt");
       List<String> usageLines = Files.readAllLines(usagePath);
