@@ -8,12 +8,14 @@ import java.util.List;
 public class App {
 
   public static void main(String[] args) {
-    printUsage();
+    if (args.length == 0) {
+      printUsage();
+    }
   }
 
   private static void printUsage() {
     try {
-      Path usagePath = Paths.get("usage.txt");
+      Path usagePath = Paths.get("./usage.txt");
       List<String> usageLines = Files.readAllLines(usagePath);
       for (String line : usageLines) {
         System.out.println(line);
