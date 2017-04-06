@@ -37,4 +37,9 @@ public class ToDoList {
   public boolean isEmpty() {
     return toDoListItems.size() == 0;
   }
+
+  public void addToDo(String item) {
+    ToDo toDoItem = new ToDo(item);
+    toDoListItems.add(toDoItem);
+  }
 }
