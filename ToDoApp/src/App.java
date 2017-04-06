@@ -21,6 +21,10 @@ public class App {
     } else if (argsInput.hasDashArg("l")) {
       loadToDoList();
       runtimeToDoList.printLines();
+    } else if (argsInput.hasDashArg("a")) {
+      loadToDoList();
+      runtimeToDoList.addToDo("Feed the monkey");
+      runtimeToDoList.printLines();
     } else {
       System.out.println(Arrays.asList(argsInput.getArgs()));
     }
