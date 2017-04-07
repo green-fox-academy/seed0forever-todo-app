@@ -27,6 +27,9 @@ public class App {
       runtimeToDoList.add(newToDoItem);
       runtimeToDoList.printLines();
       saveToDoList();
+    } else if (arguments.hasDashArg("r")) {
+      int itemIndexToRemove = arguments.getIntOfDashArg("r");
+      System.out.println("User wants to remove item number " + (itemIndexToRemove + 1));
     } else {
       System.out.println(Arrays.asList(arguments.getArgs()));
     }
