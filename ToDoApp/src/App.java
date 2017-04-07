@@ -26,6 +26,7 @@ public class App {
       loadToDoList();
       runtimeToDoList.add(newToDoItem);
       runtimeToDoList.printLines();
+      saveToDoList();
     } else {
       System.out.println(Arrays.asList(arguments.getArgs()));
     }
@@ -34,6 +35,10 @@ public class App {
   private static void loadToDoList() {
     List<String> loadedToDoFile = readFile(TODO_STORAGE_FILE);
     runtimeToDoList = new ToDoList(loadedToDoFile);
+  }
+
+  private static void saveToDoList() {
+    writeFile(TODO_STORAGE_FILE, runtimeToDoList.toListOfStrings());
   }
 
   private static void printUsage() {
@@ -56,6 +61,15 @@ public class App {
       System.out.println("Could not read '" + filePath + "' file.");
       List<String> empty = new ArrayList<>();
       return empty;
+    }
+  }
+
+  private static void writeFile(String filePath, List<String> lines) {
+    try {
+      Path file = Paths.get(filePath);
+      Files.write(file, lines);
+    } catch (IOException e) {
+      System.out.println("Could not write '" + filePath + "' file.");
     }
   }
 
