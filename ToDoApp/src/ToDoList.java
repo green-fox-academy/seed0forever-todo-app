@@ -38,7 +38,7 @@ public class ToDoList {
     return toDoListItems.size() == 0;
   }
 
-  public void addToDo(String item) {
+  public void add(String item) {
     ToDo toDoItem = new ToDo(item);
     toDoListItems.add(toDoItem);
   }
