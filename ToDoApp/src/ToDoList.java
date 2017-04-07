@@ -20,8 +20,12 @@ public class ToDoList {
     }
   }
 
-  public List<ToDo> getToDoListItems() {
-    return toDoListItems;
+  List<String> toListOfStrings() {
+    List<String> listOfStrings = new ArrayList<>();
+    for (ToDo todo : toDoListItems) {
+      listOfStrings.add(todo.toString());
+    }
+    return listOfStrings;
   }
 
   public void printLines() {
@@ -38,7 +42,7 @@ public class ToDoList {
     return toDoListItems.size() == 0;
   }
 
-  public void add(String item) {
+  public void add (String item) {
     ToDo toDoItem = new ToDo(item);
     toDoListItems.add(toDoItem);
   }
