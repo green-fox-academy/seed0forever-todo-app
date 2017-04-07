@@ -24,4 +24,20 @@ public class ArgumentContainer {
     }
     return false;
   }
+
+  public String getStringOfDashArg(String dashArg) {
+    String stringOfDashArg = "";
+    if (!hasDashArg(dashArg)) {
+      return "";
+    }
+    for (int i = 0; i < args.length; i++) {
+      if (args[i].startsWith("-")
+              && args[i].contains(dashArg)
+              && args.length > i + 1
+              && !args[i + 1].startsWith("-")) {
+        return args[i + 1];
+      }
+    }
+    return stringOfDashArg;
+  }
 }

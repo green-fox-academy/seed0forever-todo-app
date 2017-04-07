@@ -22,8 +22,9 @@ public class App {
       loadToDoList();
       runtimeToDoList.printLines();
     } else if (argsInput.hasDashArg("a")) {
+      String newToDoItem = argsInput.getStringOfDashArg("a");
       loadToDoList();
-      runtimeToDoList.addToDo("Feed the monkey");
+      runtimeToDoList.addToDo(newToDoItem);
       runtimeToDoList.printLines();
     } else {
       System.out.println(Arrays.asList(argsInput.getArgs()));
