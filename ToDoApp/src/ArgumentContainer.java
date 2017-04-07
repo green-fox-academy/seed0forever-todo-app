@@ -40,4 +40,22 @@ public class ArgumentContainer {
     }
     return stringOfDashArg;
   }
+
+  public int getIntOfDashArg(String dashArg) {
+    int indexOfDashArg = -1;
+    if (!hasDashArg(dashArg)) {
+      indexOfDashArg = -1;
+      return indexOfDashArg;
+    }
+    for (int i = 0; i < args.length; i++) {
+      if (args[i].startsWith("-")
+              && args[i].contains(dashArg)
+              && args.length > i + 1
+              && !args[i + 1].startsWith("-")) {
+        indexOfDashArg = Integer.parseInt(args[i + 1]) - 1;
+        return indexOfDashArg;
+      }
+    }
+    return indexOfDashArg;
+  }
 }
