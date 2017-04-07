@@ -14,20 +14,20 @@ public class App {
   private static ToDoList runtimeToDoList;
 
   public static void main(String[] args) {
-    ArgumentContainer argsInput = new ArgumentContainer(args);
+    ArgumentContainer arguments = new ArgumentContainer(args);
 
-    if (argsInput.isVoid()) {
+    if (arguments.isVoid()) {
       printUsage();
-    } else if (argsInput.hasDashArg("l")) {
+    } else if (arguments.hasDashArg("l")) {
       loadToDoList();
       runtimeToDoList.printLines();
-    } else if (argsInput.hasDashArg("a")) {
-      String newToDoItem = argsInput.getStringOfDashArg("a");
+    } else if (arguments.hasDashArg("a")) {
+      String newToDoItem = arguments.getStringOfDashArg("a");
       loadToDoList();
       runtimeToDoList.add(newToDoItem);
       runtimeToDoList.printLines();
     } else {
-      System.out.println(Arrays.asList(argsInput.getArgs()));
+      System.out.println(Arrays.asList(arguments.getArgs()));
     }
   }
 
