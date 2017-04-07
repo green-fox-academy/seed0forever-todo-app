@@ -11,7 +11,7 @@ public class ToDoList {
   }
 
   public ToDoList(List<String> toDoLines) {
-    outMessageEmpty = "No todos for today! :)";
+    outMessageEmpty = "No todo items for today! :)";
     toDoListItems = new ArrayList<>();
 
     for (String line : toDoLines) {
